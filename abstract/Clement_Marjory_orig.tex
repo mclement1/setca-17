@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin=1.0in]{geometry}
+\usepackage{url}
+
+\pagestyle{empty}
+
+% No paragraph indent or paragraph skip
+\parindent=0pt \parskip=0pt
+
+\begin{document}
+
+\centerline{\bf Simulation of massively-parallel PNO-based CCSD(T) and EOM-CCSD}
+
+\vspace{12pt}
+
+\centerline{ {Marjory C. Clement}$^{\rm a*}$ and {Edward F. Valeev}$^{\rm b}$}
+
+\vspace{12pt}
+
+\centerline{$^{\rm a}$Department of Chemistry, Virginia Tech}
+\centerline{Blacksburg, VA United States}
+
+\vspace{12pt}
+
+\centerline{$^{\rm b}$Department of Chemistry, Virginia Tech}
+\centerline{Blacksburg, VA United States}
+
+\vspace{12pt}
+
+\vspace{24pt}
+
+{\bf Abstract:} 
+
+% All quantum chemical methods development research is guided
+% by a common goal: to develop efficient many-body methods for calculating and
+% predicting molecular properties of interest. There are a number of different
+% techniques and strategies employed in pursuit of computational efficiency,
+% but most fall into one of two categories: reduced scaling and increased
+% parallelization. The first category contains those techniques that seek to
+% produce methods whose computational cost scales, ideally, linearly or
+% sub-linearly with the size of the system, instead of super-linearly. The
+% second category focuses on developing and implementing methods
+% in a highly parallel manner. Although the two categories offer different
+% approaches in pursuit of the same goal, they are not mutually exclusive;
+% rather, they are complementary ideas that, together, are more effective
+% than either one alone.
+
+
+Nearly all quantum chemical methods development research seeks to increase
+computational efficiency either by developing reduced-scaling methods
+or by implementing current methods in a more highly parallelized manner.
+A combination of these two tactics can, however, lead to more increases
+in efficiency than either one alone. This current work explores one such
+synthesis. We have simulated a pair natural orbital (PNO) based
+coupled cluster result within the highly parallel framework of the
+Massively Parallel Quantum Chemistry (MPQC) package [1]. The use of PNOs
+allows us to decrease the scaling of highly accurate methods while
+tightly controlling the error incurred The idea behind PNOs is simple:
+for each pair of occupied molecular orbitals, certain unoccupied
+molecular orbitals will contribute more substantially to the electronThese reduced-scaling methods
+can then be readily implemented in a highly-parallel manner   using pair natural orbitals (PNOs) to decrease the scaling of
+certain highly accurate methods while carefully controlling the loss in
+accuracy that comes as a result
+
+% This current work explores one example of the synthesis of reduced-scaling
+% methods with increased parallelization
+% such a synthesis, the implementation of a massively-parallel pair natural
+% orbital-based coupled cluster code. The idea behind pair natural orbitals (PNOs)
+% is quite simple: for each pair of molecular orbitals in a system,
+% only some of the remaining molecular orbitals will contribute substantially
+% to the calculation of the correlation energy. If we can determine which of
+% the molecular orbitals are most important for each pair, then we can neglect
+% the rest, leading, in many cases, to a respectable decrease in computational
+% cost. In addition, PNOs have the added benefit of being system size-independent [1].
+% That is, regardless of the size of the system, the number of PNOs associated
+% with each pair will be esentially constant, so methods that employ PNOs
+% enjoy reduced scaling relative to their counterparts applied to the
+% entire orbital space. This present work further increases the efficiency
+% that can be gained using PNOs by describing a
+% massively-parallel implementation of a PNO-based coupled cluster method
+% within the Massively Parallel Quantum Chemistry package [2].
+
+
+\vspace{12pt}
+
+\vspace{12pt}
+
+\parindent=0pt
+{\bf References}
+
+[1] Fabijan Pavosevic, Peter Pinski, Christoph Riplinger, Frank Neese, Edward F.
+Valeev, ``SparseMaps - A systematic infrastructure for reduced-scaling
+electronic structure methods. IV. Linear-scaling second-order explicitly
+correlated energy with pair natural orbitals'', J. Chem. Phys., {\bf 2016},
+{\em 144}, 144109
+
+[2] ``MPQC4: Massively Parallel Quantum Chemistry'', Edward F. Valeev, Cannada 
+A. Lewis, Chong Peng, Justus A. Calvin, Jinmei Zhang,
+\url{https://github.com/valeevgroup/mpqc4}.
+
+\end{document}

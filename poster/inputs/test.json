@@ -1,0 +1,47 @@
+{
+  "property" : {
+    "type" : "Energy",
+    "wfn" : "$:wfn",
+    "precision" : 1.0e-11
+  },
+  "units": "2010CODATA",
+  "molecule": {
+    "type": "Molecule",
+    "file_name": "benzene.xyz",
+    "sort_input": true,
+    "charge": 0,
+    "n_cluster": 1
+  },
+  "obs": {
+    "type": "Basis",
+    "name": "cc-pVDZ",
+    "molecule": "$:molecule"
+  },
+  "dfbs": {
+    "type": "Basis",
+    "name": "cc-pVDZ-RI",
+    "molecule": "$:molecule"
+  },
+  "wfn_world":{
+    "type" : "WfnWorld",
+    "molecule" : "$:molecule",
+    "basis" : "$:obs",
+    "df_basis" :"$:dfbs"
+  },
+  "scf":{
+    "type": "RI-RHF",
+    "wfn_world": "$:wfn_world",
+    "localize" : true
+  },
+  "wfn":{
+    "type": "CCSD",
+    "max_iter" : 35,
+    "molecule" : "$:molecule",
+    "wfn_world": "$:wfn_world",
+    "ref": "$:scf",
+    "method" : "direct",
+    "frozen_core" : true,
+    "occ_block_size" : 1,
+    "unocc_block_size" : 1000000000
+  }
+}

@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin=1.0in]{geometry}
+\usepackage{url}
+
+\pagestyle{empty}
+
+% No paragraph indent or paragraph skip
+\parindent=0pt \parskip=0pt
+
+\begin{document}
+
+\centerline{\bf Massively-parallel simulation of reduced-scaling ground and excited state coupled-cluster methods}
+
+\vspace{12pt}
+
+\centerline{ {Marjory C. Clement}$^{\rm a*}$ and {Edward F. Valeev}$^{\rm b}$}
+
+\vspace{12pt}
+
+\centerline{$^{\rm a}$Department of Chemistry, Virginia Tech}
+\centerline{Blacksburg, VA United States}
+
+\vspace{12pt}
+
+\centerline{$^{\rm b}$Department of Chemistry, Virginia Tech}
+\centerline{Blacksburg, VA United States}
+
+\vspace{12pt}
+
+\vspace{24pt}
+
+{\bf Abstract:} To greatly increase the reach of conventional many-body techniques like
+coupled-cluster (CC) we must employ numerical approximations that reduce the prohibitive high-order
+computational complexity as well as deploy our reduced-scaling CC algorithms on the largest machines
+available. With these complementary ideas in mind we implemented a simulation framework for reduced-scaling
+CC methods based on the massively-parallel implementation
+of ground- and excited-state CC methods in the re-engineered Massively Parallel Quantum Chemistry (MPQC)
+package [1]. Although the current implementation retains the high complexity of the conventional CC methods,
+this allows rapid exploration of reduced-scaling ansatz and provides a production-quality
+solver component for reduced-scaling massively parallel coupled-cluster currently under development. 
+
+Both the ground and excited state approaches can utilize arbitrary compressions of the cluster amplitudes,
+including those based on pair-natural orbitals (PNOs) [2,3]. The idea behind PNOs
+is quite simple: for each pair of electrons in a system,
+only a few orbital products contribute substantially
+to the pair-correlation wave function and pair energy, with the number of PNOs per pair essentially independent of the system size.
+Furthermore, the PNOs determined using an approximate
+first-order guess provide a useful subspace for solving the coupled-cluster equations.
+Using the PNOs as the template, we devise similar compressions to the right- and left-hand vectors in EOM-CCSD.
+The robust convergence of the simulated reduced-scaling CCSD(T) and EOM-CCSD energies will be demonstrated
+with respect to the single rank-truncation parameter for systems of unprecedented size.
+
+\vspace{12pt}
+
+\vspace{12pt}
+
+\parindent=0pt
+{\bf References}
+
+[1] ``MPQC4: Massively Parallel Quantum Chemistry'', Edward F. Valeev, Cannada 
+A. Lewis, Chong Peng, Justus A. Calvin, Jinmei Zhang,
+\url{https://github.com/valeevgroup/mpqc4}.
+
+[2] C. Edmiston, M. Krauss, ``Configuration-Interaction Calculation of $H_3$ and $H_2$'',
+J. Chem. Phys., {\bf 1965}, {\em 42}, 1119-1120
+
+[3] Frank Neese, Frank Wennmohs, Andreas Hansen, ``Efficient and accurate local approximations
+to coupled-electron pair approaches: An attempt to revive the pair natural orbital
+method'', J. Chem. Phys., {\bf 2009}, {\em 130}, 114108
+
+\end{document}

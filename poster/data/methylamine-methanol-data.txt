@@ -1,0 +1,10 @@
+Methylamine-Methanol "dimer" single-point energy calculations
+
+t_pno			ave_npno			t_osv			ave_nosv			E_corr
+reference		reference			reference		reference			-0.721594873198306
+0				83					0				83					-0.721594873235744
+1.0e-10			79					1.0e-12			79					-0.721594702979952
+1.0e-09			74					1.0e-11			76					-0.721593853521738
+1.0e-08			65					1.0e-10			71					-0.72158668616894
+1.0e-07			52					1.0e-09			67					-0.721523595167105
+1.0e-06			35					1.0e-08			61					-0.721171036172581
